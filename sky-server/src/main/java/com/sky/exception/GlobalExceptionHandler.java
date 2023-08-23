@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     //属性重复异常处理
     @ExceptionHandler(DuplicateKeyException.class)
     public Result handlerDuplicateKeyException(DuplicateKeyException e) {
-        log.error("出现字段重复异常：{}", e);
+        log.error("出现未知异常：{}", e);
 
         if (StrUtil.contains(e.getMessage(),"employee.username")){
             return Result.error("账户重复");
@@ -40,6 +40,11 @@ public class GlobalExceptionHandler {
             return Result.error("身份证号码重复");
         }
 
+        if (StrUtil.contains(e.getMessage(),"category.name")){
+            return Result.error("分类名称重复");
+        }
         return Result.error("字段重复");
     }
+
+
 }

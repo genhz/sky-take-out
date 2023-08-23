@@ -87,10 +87,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setPassword(passMd5);//加密之后的密码
         employee.setStatus(1);//默认启用
 
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setCreateUser(UserHolder.get());
-        employee.setUpdateUser(UserHolder.get());
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setCreateUser(UserHolder.get());
+//        employee.setUpdateUser(UserHolder.get());
 
         //2. 调用mapper保存
         employeeMapper.insert(employee);
@@ -104,8 +104,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void update(Employee employee) {
         //1. 补齐参数
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(UserHolder.get());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setUpdateUser(UserHolder.get());
 
         //2. 执行更新
         employeeMapper.updateById(employee);
